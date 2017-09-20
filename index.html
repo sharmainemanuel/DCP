@@ -20,7 +20,13 @@
 	
 
 </head>
-<body class="valign-wrapper">
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">DepEd - Olongapo</a>
+    </div>
+  </nav>
+     
 	<!-- start main -->
 	<div class="container valign">
 		<!-- start 1st container -->
@@ -28,6 +34,7 @@
         	<!-- start 1st row -->
         	<div class="row">
         		<!-- icon -->
+				<br><br>
 				<div><center><h4>DCP Monitoring System</h4></center>
         		<img class="favicon responsive-img wow bounceIn" data-wow-delay=".8s" src="favicon.png"><br><br>
 
@@ -102,19 +109,16 @@
 		
 		
 		
-              $('#btnsubmit').click(function(){
+            $('#btnsubmit').click(function(){
             var user = $('#userkey').val();
             var pass = $('#passkey').val();
-
-			alert("hello "+user);
             $.ajax({
                 url: "https://johnrayopulento.000webhostapp.com/deped/login.php?username="+user+"&password="+pass,
                 success: function(result){
-                    //alert(result);
                     if(result == "success"){
-                      //  location.href = 'home.html';
-						alert(result);
-						
+						alert("hello "+user);
+						location.href = 'home.html';
+						console.log(result);
                     }
                     else{
                         alert("Invalid credentials");    
