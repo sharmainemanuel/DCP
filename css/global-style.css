@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/raleway/Raleway-Regular.ttf");
+  src: url("../fonts/raleway/Raleway-Regular.ttf") format("truetype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url("../fonts/teko/Teko-Regular.ttf");
+  src: url("../fonts/teko/Teko-Regular.ttf") format("truetype");
+  font-weight: 200;
+}
+
+
+/* additional settings for materialize */
+
+.container-narrow {
+	width: 70%;
+}
+
+.container-narrower {
+	width: 60%;
+}
+
+.side-nav {
+     width: 65%;
+}
+
+.collapsible-header {
+     border-bottom: none;
+}
+
+/* custom input color */
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #005B7F;
+     box-shadow: none;
+}
+
+.input-field input[type=text]:focus + label {
+     color: #005B7F !important;
+}
+
+.input-field input[type=text].valid {
+     border-bottom: 1px solid #19A25F;
+     box-shadow: none;
+}
+
+.input-field input[type=text].invalid {
+     border-bottom: 1px solid #e51c23;
+     box-shadow: none;
+}
+
+.input-field input[type=password]:focus {
+     border-bottom: 1px solid #005B7F;
+     box-shadow: none;
+}
+
+.input-field input[type=password]:focus + label {
+     color: #005B7F !important;
+}
+
+.input-field input[type=password].valid {
+     border-bottom: 1px solid #19A25F;
+     box-shadow: none;
+}
+
+.input-field input[type=password].invalid {
+     border-bottom: 1px solid #e51c23;
+     box-shadow: none;
+}
+
+.input-field input[type=email]:focus {
+     border-bottom: 1px solid #005B7F;
+     box-shadow: none;
+}
+
+.input-field input[type=email]:focus + label {
+     color: #005B7F !important;
+}
+
+.input-field input[type=email].valid {
+     border-bottom: 1px solid #19A25F;
+     box-shadow: none;
+}
+
+.input-field input[type=email].invalid {
+     border-bottom: 1px solid #e51c23;
+     box-shadow: none;
+}
+
+
+
+/* custom buttons */
+
+.bluer {
+	background-color: #005B7F;
+}
+
+/* custom texts */
+
+.oranger {
+	background-color: #FF9800;
+}

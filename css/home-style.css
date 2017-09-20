@@ -1,0 +1,30 @@
+body,html {
+	height: 100%;
+	width: 100%;
+}
+
+.brand-logo {
+	
+	font-weight: 300 !important;
+	letter-spacing: .1em;
+	margin-left: 1.5em;
+}
+
+.v-container {
+	height: 90%;
+	width: 100%;
+}
+
+.card-transparent {
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.collection .collection-item {
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.collection {
+	border: none !important;
+}

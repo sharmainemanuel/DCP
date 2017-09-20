@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DCP Monitoring System</title>
+	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+
+    <link rel="icon" href="favicon.png">
+	<!-- material style -->
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<!-- login style -->
+	<link rel="stylesheet" type="text/css" href="css/login-style.css">
+	<!-- global css -->
+	<link rel="stylesheet" type="text/css" href="css/global-style.css">
+	<!-- font-awesome style -->
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+	<!-- wow.js style -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	
+
+</head>
+<body class="valign-wrapper">
+	<!-- start main -->
+	<div class="container valign">
+		<!-- start 1st container -->
+        <div class="container">
+        	<!-- start 1st row -->
+        	<div class="row">
+        		<!-- icon -->
+				<div><center><h4>DCP Monitoring System</h4></center>
+        		<img class="favicon responsive-img wow bounceIn" data-wow-delay=".8s" src="favicon.png"><br><br>
+
+        		<!-- start form -->
+        		<form id="loginform" method="GET">
+	        		<div class="container container-narrower wow fadeIn" data-wow-delay=".5s">
+	        			<div class="row">
+	        				<div class="col s12">
+	        					<div class="row">
+	        						<div class="input-field col s12">
+							             <input type="text" type="text" id="userkey" class="form-control ml-0">
+										<label for="userkey" class="ml-0">Enter Username</label>
+									 </div>
+
+							        <div class="input-field col s12">
+							              <input type="password" type="text" id="passkey" class="form-control ml-0">
+											<label for="passkey" class="ml-0">Enter password</label>
+								   </div>
+
+							        <div class="input-field col s12">
+							          <!--<button class="btn blue lighten-1 waves-effect waves-light" name="submit-btn" type="submit">Login</button>-->
+									  <input type="button" class="btn btn lighten-1 waves-effect waves-light" id="btnsubmit" value="Login">
+							          
+							        </div>
+	        					</div>
+	        				</div>
+	        			</div>
+	        		</div>
+        		</form>
+        		<!-- end form -->
+
+
+        	</div>
+        	<!-- end 1st row -->
+        </div>
+        <!-- end 1st container -->
+    </div>
+    <!-- end main -->
+
+	<!-- jquery -->
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<!-- material script -->
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<!-- wow script -->
+	<script type="text/javascript" src="js/wow.js"></script>
+	<script>
+        new WOW().init();
+		
+    </script>
+	<script>
+	
+		    $.ajax({
+            method: "GET",
+            dataType: "json",
+            url: "https://johnrayopulento.000webhostapp.com/deped/getJobId.php?",   
+            success: function (result) {              
+            
+                var data = " ";
+                for (i=0; i < result.length; i++){
+                  data += result[i].fld_jobOrder;
+
+                }
+                $("#showMe").html(data);
+				alert(data);
+            },
+            error: function(error){
+                alert("error:"+error);
+				$("#showMe").html(error);
+            }
+        });
+
+		
+		
+		
+              $('#btnsubmit').click(function(){
+            var user = $('#userkey').val();
+            var pass = $('#passkey').val();
+
+			alert("hello "+user);
+            $.ajax({
+                url: "https://johnrayopulento.000webhostapp.com/deped/login.php?username="+user+"&password="+pass,
+                success: function(result){
+                    //alert(result);
+                    if(result == "success"){
+                      //  location.href = 'home.html';
+						alert(result);
+						
+                    }
+                    else{
+                        alert("Invalid credentials");    
+                    }
+                },
+             error:function (xhr, status, error){
+					alert( "status=" + xhr.responseText + ", error=" + status + ", error=" + error );
+					//location.href = 'home.html'; 
+                }
+            });
+        });
+	</script>
+	
+
+</body>
+</html>
