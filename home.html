@@ -384,10 +384,10 @@ function getId(){
                     //location.reload();
                     location.reload();
                 },
-                error: function(xhr){
-                    alert("errror" +xhr.responseText);
+                error: function(error){
+                    alert(error);
                    location.reload();
-                    // alert("THERE IS SOME ERROR");
+                    alert("THERE IS SOME ERROR");
                 }
          
             })
