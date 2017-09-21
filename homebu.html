@@ -42,19 +42,19 @@
 	        					<div class="row">
 									<div class="input-field col s12">
 										<i class="fa fa-user prefix grey-text"></i>
-										<input type="text" id="job_order" name="job_order" class="form-control" readonly="">
+										<input type="text" id="job-order" class="form-control" readonly="">
 									   
 									</div>
 
 									<div class="input-field col s12">
                             <i class="fa fa-envelope prefix grey-text"></i>
-                            <input type="text" id="requested_by" name="requested_by" class="form-control">
+                            <input type="text" id="requested-by" class="form-control">
                             <label for="requested-by">Requested By *</label>
                         </div>
 
                         <div class="input-field col s12">
                             <i class="fa fa-tag prefix grey-text"></i>      
-                            <input list="office2" id="office" name="office"  class="form-control" placeholder="Office *">
+                            <input list="office2" id="office"  class="form-control" placeholder="Office *">
                             <datalist id="office2">
                               <option value="Office of the SDS">Office of the SDS
                               <option value="Curriculum Implementation Division ">Office of the SDS
@@ -64,8 +64,7 @@
                             </datalist>
                         
                         </div>
-						<!--
-						<div class="input-field col s12 school">
+                                 <div class="input-field col s12 school">
                             <i class="fa fa-building prefix grey-text"></i>      
                             <input list="school2" id="school"  class="form-control">
                             <datalist id="school2">
@@ -77,7 +76,7 @@
                             </datalist>
                             <label for="school">Schools *</label>
                         </div>
-
+						<!--
                         <div class="input-field col s12">
                             <i class="fa fa-calendar prefix grey-text"></i>
                             <input placeholder="Date Started *" type="text" id="date-started" class="form-control datepicker">
@@ -228,8 +227,7 @@
                                                 </div>
 -->
 									<div class="text-center">
-										<!--<button class="btn btn-unique" id="btnsubmit">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>-->
-										<input type="button" value="Submit" class="btn btn-unique" id="btnsubmit"><i class="fa fa-paper-plane-o ml-1"></i>
+										<button class="btn btn-unique" id="btnsubmit">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>
 									</div>
 									
 									
@@ -262,10 +260,68 @@
     </script>
 	<script>
      $(document).ready(function(){
-           getId();				
-     });	
+           getId();
+		   office();
+		   dropIssues();
 
-	
+
+
+					
+     });	
+function office(){
+        $('.school').hide();
+         $('#office').change(function(){
+            var office = $('#office').val();
+
+            console.log(office);
+            if (office == 'Schools'){
+                $('.school').show();
+            }
+
+        });
+
+}	 
+	 
+	 
+function dropIssues() {
+	    $('select').material_select();
+		
+		$('select').change(function(){
+		    var issue =  $( ".mdb-select option:selected" ).text();
+           console.log(issue);
+           var data="";
+            if(issue == "SOFTWARE"){
+                $('#issues_software').css("display", "block");  
+                $('#issues_hardware').css("display", "none");
+                $('#issues_network').css("display", "none");
+                $('#issues_misc').css("display", "none");  
+            }
+            else if(issue == "HARDWARE"){
+                $('#issues_hardware').css("display", "block");
+                $('#issues_software').css("display", "none"); 
+                $('#issues_network').css("display", "none");
+                $('#issues_misc').css("display", "none");        
+            }
+            else if(issue == "NETWORK"){
+                $('#issues_network').css("display", "block");
+                $('#issues_hardware').css("display", "none");
+                $('#issues_software').css("display", "none");
+                $('#issues_misc').css("display", "none");  
+            }
+              else if(issue == "MISC"){
+                $('#issues_misc').css("display", "block");
+                $('#issues_hardware').css("display", "none");
+                $('#issues_software').css("display", "none");
+                $('#issues_network').css("display", "none");  
+            }
+            else{
+              // alert(issue); 
+            }
+
+		});
+		
+		
+}	
 function getId(){
         $.ajax({
         url:"https://johnrayopulento.000webhostapp.com/deped/getJobId.php?",
@@ -282,7 +338,7 @@ function getId(){
 				data += response[i].fld_jobOrder;
 			//	alert(newJobOrder);
             }
-			$('#job_order').val(newJobOrder);
+			$('#job-order').val(newJobOrder);
             console.log(newJobOrder)
         },
         error:function(error){
@@ -297,20 +353,46 @@ function getId(){
 
 
          $('#btnsubmit').click(function(){
-			var formValues = $("#issueform").serialize();
-            console.log(formValues);
-			
-			$.ajax({
-                url: "https://johnrayopulento.000webhostapp.com/deped/save.php?"+formValues,
-				success: function(result){
-                    alert(result);
 
+            //var issues = $('#issues[]').val();
+                var yourArray = [];
+            $("input:checkbox[name='issues']:checked").each(function(){
+            yourArray.push($(this).val());
+            });
+            // console.log(yourArray);
+            var job_order = $('#job-order').val();
+            var requested_by = $('#requested-by').val();
+            var office = $('#office').val();
+            var date_started = $('#date-started').val();  
+            var issue_cat = $('#issues').val();    
+            var main_issue = $('#issue-1').val();
+            var other_issue = $('#issue-2').val();
+            var client = $('#client').val();
+            var school = $('#school').val();
+
+
+            var formValues = $("#issue_form").serialize();
+            console.log(formValues);
+            var jsonString = JSON.stringify(yourArray);
+            console.log(jsonString)
+            $.ajax({
+                url: "https://johnrayopulento.000webhostapp.com/deped/insert.php?issues="+yourArray,
+                method: "POST",
+                data:{job_order: job_order, requested_by: requested_by, office:  office, issue_cat: issue_cat, main_issue: main_issue, other_issue: other_issue , client: client, school: school
+                 },
+                success: function(result){
+                    alert(result);
+                    //location.reload();
+                    location.reload();
                 },
                 error: function(error){
                     alert(error);
+                   location.reload();
+                    alert("THERE IS SOME ERROR");
                 }
-				
-			});
+         
+            })
+         
         });
 
 
