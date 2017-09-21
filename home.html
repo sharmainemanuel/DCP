@@ -46,50 +46,40 @@
 									   
 									</div>
 
-									<div class="input-field col s12">
+						<div class="input-field col s12">
                             <i class="fa fa-envelope prefix grey-text"></i>
                             <input type="text" id="requested_by" name="requested_by" class="form-control">
-                            <label for="requested-by">Requested By *</label>
+                            <label for="requested_by">Requested By *</label>
                         </div>
 
                         <div class="input-field col s12">
-                            <i class="fa fa-tag prefix grey-text"></i>      
-                            <input list="office2" id="office" name="office"  class="form-control" placeholder="Office *">
-                            <datalist id="office2">
-                              <option value="Office of the SDS">Office of the SDS
-                              <option value="Curriculum Implementation Division ">Office of the SDS
-                              <option value="School Governance and Operations Division">School Governance and Operations Division
-                              <option value="Information, Communication and Technology Unit">Information, Communication and Technology Unit
-                              <option value="Schools">Schools
-                            </datalist>
-                        
+                            <i class="fa fa-tag prefix grey-text"></i>
+							<input type="text" id="office" name="office" class="office">
+							<label for="office">Office</label>
                         </div>
+						
+						 <div class="input-field col s12 school_div">
+                            <i class="fa fa-tag prefix grey-text"></i>
+							<input type="text" id="school" name="school" class="school">
+							<label for="school">School</label>
+                        </div>
+						
+						
+					
 						<!--
-						<div class="input-field col s12 school">
-                            <i class="fa fa-building prefix grey-text"></i>      
-                            <input list="school2" id="school"  class="form-control">
-                            <datalist id="school2">
-                              <option value="Amelia Heights ES">Amelia Heights ES
-                              <option value="Asinan ES">Asinan ES
-                              <option value="Balic-Balic ES">Balic-Balic ES
-                              <option value="Bangal ES">Bangal ES
-                              <option value="Banicain ES">Banicain ES
-                            </datalist>
-                            <label for="school">Schools *</label>
-                        </div>
-
                         <div class="input-field col s12">
                             <i class="fa fa-calendar prefix grey-text"></i>
-                            <input placeholder="Date Started *" type="text" id="date-started" class="form-control datepicker">
+                            <input placeholder="Date Started *" type="text" id="date-started" name="date-started" class="form-control datepicker">
       
                         </div>
                         <div class="input-field col s12">
                             <i class="fa fa-clock-o prefix grey-text"></i>
-                            <input placeholder="Time Started *" type="text" id="time-started" class="form-control timepicker">
+                            <input placeholder="Time Started *" type="text" id="time-started"  name="time-started" class="form-control timepicker">
                         </div>
+						-->
+					
                         <div class="input-field col s12">
-							Issues
-                            <select class="mdb-select" id="issues">
+                            <select class="mdb-select" id="issues" name="issue_cat">
                                 <option value="" disabled selected>Issues</option>
                                 <option value="Software">SOFTWARE</option>
                                 <option value="Hardware">HARDWARE</option>
@@ -98,139 +88,148 @@
                             </select>
                          </div>
                          <div class="input-field col s12">
-                                                    <div id="issues_software" style="display: none;">
-                                                    SOFTWARE
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check1" value="Startup/Shutting Down">
-                                                            <label for="check1"> Startup / Shutting Down</label>
-                                                        </fieldset>
-                                                         <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check2" value="OS">
-                                                            <label for="check2"> Operating System</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check3" value="System Software">
-                                                            <label for="check3"> System Software</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check4" value="Device Software Drivers">
-                                                            <label for="check4"> Device Software Drivers</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check5" value="Anti Viruses">
-                                                            <label for="check5"> Anti Viruses</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check6" value="Installation">
-                                                            <label for="check6"> Installation/ Updates</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" id="check7" value="File(s)">
-                                                            <label for="check7"> File(s)/ Data(s)</label>
-                                                        </fieldset>
-                                                    </div>
-                                                     
-                                                     <div id="issues_hardware" style="display: none">
-                                                     HARDWARE
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" value="PC,Laptop and Hardware" id="check8">
-                                                            <label for="check8">PC,Laptop and Hardware</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" value="Input/ Output Error" id="check9">
-                                                            <label for="check9">Input/ Output Error</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" value="Hardware Error" id="check10">
-                                                            <label for="check10">Hardware Error</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" value="Printer Error" id="check11">
-                                                            <label for="check11">Printer Error</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox" name="issues" value="Connector/ Power / Plug Problem(s)" id="check12">
-                                                            <label for="check12">Connector/ Power / Plug Problem(s)</label>
-                                                        </fieldset>
-                                                    </div>
-                                                      
-                                                      <div id="issues_network" style="display: none">
-                                                    NETWORK
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="LAN Setup/ Config."   name="issues" id="check13">
-                                                            <label for="check13">LAN Setup/ Config.</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Router/ WIFI Setup/ Config."   name="issues" id="check14">
-                                                            <label for="check14">Router/ WIFI Setup/ Config.</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"    value="Internet Problem"  name="issues" id="check15">
-                                                            <label for="check15">Internet Problem</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Printer Sharing"   name="issues" id="check16">
-                                                            <label for="check16">Printer Sharing</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Cable Issue"   name="issues" id="check17">
-                                                            <label for="check17">Cable Issue</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"    value="NAS Problem"  name="issues" id="check18">
-                                                            <label for="check18">NAS Problem</label>
-                                                        </fieldset>
-                                                    </div>
-                                                     
-                                                     <div id="issues_misc" style="display: none;">
-                                                         MISC
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="USB Drive Care"   name="issues" id="check19">
-                                                            <label for="check19">USB Drive Care</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Print Job"   name="issues" id="check20">
-                                                            <label for="check20">Print Job</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Technical Assistance"   name="issues" id="check21">
-                                                            <label for="check21">Technical Assistance</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Layout"   name="issues" id="check22">
-                                                            <label for="check22">Layout</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"    value="Web Updates"  name="issues" id="check23">
-                                                            <label for="check23">Web Updates</label>
-                                                        </fieldset>
-                                                        <fieldset class="form-group">
-                                                            <input type="checkbox"   value="Email Problem(s)"   name="issues" id="check24">
-                                                            <label for="check24">Email Problem(s)</label>
-                                                        </fieldset>
-                                                    </div>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <i class="fa fa-warning prefix grey-text"></i>
-                                                    <textarea id="issue-1" class="md-textarea" length="120"></textarea>
-                                                    <label for="issue-1">Main Issue *</label>
-                                                </div>
-                                                <div class="input-field col s12">
-                                                    <i class="fa fa-warning prefix grey-text"></i>
-                                                    <textarea id="issue-2" class="md-textarea" length="120"></textarea>
-                                                    <label for="issue-2">Other Issue *</label>
-                                                </div>
+                                    <div id="issues_software" style="display: none;">
+                                    SOFTWARE
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check1" value="Startup/Shutting Down">
+                                            <label for="check1"> Startup / Shutting Down</label>
+                                        </fieldset>
+                                         <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check2" value="OS">
+                                            <label for="check2"> Operating System</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check3" value="System Software">
+                                            <label for="check3"> System Software</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check4" value="Device Software Drivers">
+                                            <label for="check4"> Device Software Drivers</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check5" value="Anti Viruses">
+                                            <label for="check5"> Anti Viruses</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check6" value="Installation">
+                                            <label for="check6"> Installation/ Updates</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" id="check7" value="File(s)">
+                                            <label for="check7"> File(s)/ Data(s)</label>
+                                        </fieldset>
+                                    </div>
+                                     
+                                     <div id="issues_hardware" style="display: none">
+                                     HARDWARE
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" value="PC,Laptop and Hardware" id="check8">
+                                            <label for="check8">PC,Laptop and Hardware</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" value="Input/ Output Error" id="check9">
+                                            <label for="check9">Input/ Output Error</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" value="Hardware Error" id="check10">
+                                            <label for="check10">Hardware Error</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" value="Printer Error" id="check11">
+                                            <label for="check11">Printer Error</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox" name="issues" value="Connector/ Power / Plug Problem(s)" id="check12">
+                                            <label for="check12">Connector/ Power / Plug Problem(s)</label>
+                                        </fieldset>
+                                    </div>
+                                      
+                                      <div id="issues_network" style="display: none">
+                                    NETWORK
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="LAN Setup/ Config."   name="issues" id="check13">
+                                            <label for="check13">LAN Setup/ Config.</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Router/ WIFI Setup/ Config."   name="issues" id="check14">
+                                            <label for="check14">Router/ WIFI Setup/ Config.</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"    value="Internet Problem"  name="issues" id="check15">
+                                            <label for="check15">Internet Problem</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Printer Sharing"   name="issues" id="check16">
+                                            <label for="check16">Printer Sharing</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Cable Issue"   name="issues" id="check17">
+                                            <label for="check17">Cable Issue</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"    value="NAS Problem"  name="issues" id="check18">
+                                            <label for="check18">NAS Problem</label>
+                                        </fieldset>
+                                    </div>
+                                     
+                                     <div id="issues_misc" style="display: none;">
+                                         MISC
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="USB Drive Care"   name="issues" id="check19">
+                                            <label for="check19">USB Drive Care</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Print Job"   name="issues" id="check20">
+                                            <label for="check20">Print Job</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Technical Assistance"   name="issues" id="check21">
+                                            <label for="check21">Technical Assistance</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Layout"   name="issues" id="check22">
+                                            <label for="check22">Layout</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"    value="Web Updates"  name="issues" id="check23">
+                                            <label for="check23">Web Updates</label>
+                                        </fieldset>
+                                        <fieldset class="form-group">
+                                            <input type="checkbox"   value="Email Problem(s)"   name="issues" id="check24">
+                                            <label for="check24">Email Problem(s)</label>
+                                        </fieldset>
+                                    </div>
+                                </div>
+								<!--
+                                <div class="input-field col s12">
+                                    <i class="fa fa-warning prefix grey-text"></i>
+                                    <textarea id="issue-1" class="md-textarea" length="120"></textarea>
+                                    <label for="issue-1">Main Issue *</label>
+                                </div>
+                                <div class="input-field col s12">
+									<i class="fa fa-warning prefix grey-text"></i>
+                                    <textarea id="issue-2" class="md-textarea" length="120"></textarea>
+									<label for="issue-2">Other Issue *</label>
+                                </div>
 
                                                 <div class="input-field col s12">
                                                    <i class="fa fa-user-circle prefix grey-text"></i>
                                                     <input type="text" id="client" class="form-control">
                                                     <label for="client">Client *</label>
                                                 </div>
--->
-									<div class="text-center">
-										<!--<button class="btn btn-unique" id="btnsubmit">Submit <i class="fa fa-paper-plane-o ml-1"></i></button>-->
-										<input type="button" value="Submit" class="btn btn-unique" id="btnsubmit"><i class="fa fa-paper-plane-o ml-1"></i>
-									</div>
+								-->
+								
+								
+						 <div class="input-field col s12 ">
+                           
+							<!-- <input type="button" value="Submit" class="btn btn-unique material-icons right waves-effect waves-light" id="btnsubmit"> -->
+							
+							  <button type="button" id="btnsubmit" class="btn waves-effect waves-light right" type="submit" name="action">Submit
+								 <i class="fa fa-paper-plane-o ml-1"></i>
+							  </button>
+        
+                        </div>
+				
 									
 									
 									
@@ -258,18 +257,110 @@
 	<script type="text/javascript" src="js/wow.js"></script>
 	<script>
         new WOW().init();
-		
+	
+	
     </script>
+	
 	<script>
      $(document).ready(function(){
-           getId();				
-     });	
+        getId();	
+		formLoad();	
 
+	});	
+
+
+function formLoad(){
+	$('input.office').autocomplete({
+		data: {
+		  "Office of the SDS": null,
+		  "Curriculum Implementation Division": null,
+		  "School Governance and Operations Division": null,
+		  "Information, Communication and Technology Unit" :null,
+		  "Schools": null
+		},
+		limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+		onAutocomplete: function(val) {
+		  // Callback function when value is autcompleted.
+		},
+		minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+	});	
+	$('input.school').autocomplete({
+		data: {
+		  "Amelia Heights ES": null,
+		  "Asinan ES": null,
+		  "Balic-Balic ES": null,
+		  "Bangal ES" :null,
+		  "Banicain": null
+		},
+		limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+		onAutocomplete: function(val) {
+		  // Callback function when value is autcompleted.
+		},
+		minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+	});		
 	
+	//show school
+	     $('.school_div').hide();
+         $('#office').change(function(){
+            var office = $('#office').val();
+            console.log(office);
+            if (office == 'Schools'){
+                $('.school_div').show();
+            }
+
+        });
+		
+	//show date and time 
+
+	$('.datepicker').pickadate({
+		selectMonths: true, // Creates a dropdown to control month
+		selectYears: 15, // Creates a dropdown of 15 years to control year,
+		today: 'Today',
+		clear: 'Clear',
+		close: 'Ok',
+		closeOnSelect: false // Close upon selecting a date,
+	});	
+	
+	//show issues
+	$('select').material_select();
+	$('select').change(function(){
+		    var issue =  $( ".mdb-select option:selected" ).text();
+           console.log(issue);
+           var data="";
+            if(issue == "SOFTWARE"){
+                $('#issues_software').css("display", "block");  
+                $('#issues_hardware').css("display", "none");
+                $('#issues_network').css("display", "none");
+                $('#issues_misc').css("display", "none");  
+            }
+            else if(issue == "HARDWARE"){
+                $('#issues_hardware').css("display", "block");
+                $('#issues_software').css("display", "none"); 
+                $('#issues_network').css("display", "none");
+                $('#issues_misc').css("display", "none");        
+            }
+            else if(issue == "NETWORK"){
+                $('#issues_network').css("display", "block");
+                $('#issues_hardware').css("display", "none");
+                $('#issues_software').css("display", "none");
+                $('#issues_misc').css("display", "none");  
+            }
+              else if(issue == "MISC"){
+                $('#issues_misc').css("display", "block");
+                $('#issues_hardware').css("display", "none");
+                $('#issues_software').css("display", "none");
+                $('#issues_network').css("display", "none");  
+            }
+            else{
+              // alert(issue); 
+            }
+
+		});
+	 
+}	
 function getId(){
         $.ajax({
         url:"https://johnrayopulento.000webhostapp.com/deped/getJobId.php?",
-       
         method:"GET",
         success:function(res){
 			var response = JSON.parse(res);
@@ -297,13 +388,32 @@ function getId(){
 
 
          $('#btnsubmit').click(function(){
+		 
+			var yourArray = [];
+				$("input:checkbox[name='issues']:checked").each(function(){
+				yourArray.push($(this).val());
+            });
+			
+			var jsonString = JSON.stringify(yourArray);
+			console.log(jsonString);
 			var formValues = $("#issueform").serialize();
             console.log(formValues);
 			
+			
+			
+			var job_order = $('#job_order').val();
+            var requested_by = $('#requested_by').val();
+            var office = $('#office').val();
+            var school = $('#school').val();
+			var issue_cat = $('#issues').val(); 
+			
 			$.ajax({
-                url: "https://johnrayopulento.000webhostapp.com/deped/save.php?"+formValues,
+                url: "https://johnrayopulento.000webhostapp.com/deped/save.php?issues="+yourArray,
+				data:{job_order: job_order, requested_by: requested_by, office:  office, issue_cat: issue_cat},
+				method: "POST",
 				success: function(result){
                     alert(result);
+					location.reload();
 
                 },
                 error: function(error){
