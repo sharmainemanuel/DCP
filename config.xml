@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<widget id="com-dcp-mob" version="0.0.3">
+<widget id="com-dcp-mob" version="0.0.4">
 
-  <name>depEd</name>
+  <name>DCP</name>
   <description>
 	DCP Monitoring App
   </description>
