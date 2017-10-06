@@ -200,16 +200,16 @@
                                         </fieldset>
                                     </div>
                                 </div>
-								<!--
+								
                                 <div class="input-field col s12">
                                     <i class="fa fa-warning prefix grey-text"></i>
-                                    <textarea id="issue-1" class="md-textarea" length="120"></textarea>
-                                    <label for="issue-1">Main Issue *</label>
+                                    <textarea id="main_issue" name="main_issue" class="md-textarea" length="120"></textarea>
+                                    <label for="main_issue">Main Issue *</label>
                                 </div>
                                 <div class="input-field col s12">
 									<i class="fa fa-warning prefix grey-text"></i>
-                                    <textarea id="issue-2" class="md-textarea" length="120"></textarea>
-									<label for="issue-2">Other Issue *</label>
+                                    <textarea id="other_issue" name="other_issue"   class="md-textarea" length="120"></textarea>
+									<label for="other_issue">Other Issue *</label>
                                 </div>
 
                                                 <div class="input-field col s12">
@@ -217,7 +217,7 @@
                                                     <input type="text" id="client" class="form-control">
                                                     <label for="client">Client *</label>
                                                 </div>
-								-->
+								
 								
 								
 						 <div class="input-field col s12 ">
@@ -360,7 +360,8 @@ function formLoad(){
 }	
 function getId(){
         $.ajax({
-        url:"https://johnrayopulento.000webhostapp.com/deped/getJobId.php?",
+     //   url:"http://tech-assist.deped-olongapo.com/getJobId.php?",
+        url:"api/getJobId.php?",
         method:"GET",
         success:function(res){
 			var response = JSON.parse(res);
@@ -399,17 +400,21 @@ function getId(){
 			var formValues = $("#issueform").serialize();
             console.log(formValues);
 			
-			
-			
+	
 			var job_order = $('#job_order').val();
             var requested_by = $('#requested_by').val();
             var office = $('#office').val();
             var school = $('#school').val();
 			var issue_cat = $('#issues').val(); 
-			
+			var main_issue = $('#main_issue').val(); 
+			var other_issue = $('#other_issue').val(); 
+			var client = $('#client').val(); 
+				
 			$.ajax({
-                url: "https://johnrayopulento.000webhostapp.com/deped/save.php?issues="+yourArray,
-				data:{job_order: job_order, requested_by: requested_by, office:  office, issue_cat: issue_cat},
+              //  url: "save.php?issues="+yourArray,
+               url: "http://tech-assist.deped-olongapo.com/save.php?issues="+yourArray,
+				//data:{job_order: job_order, requested_by: requested_by, office:  office, issue_cat: issue_cat,school: school,main_issue: main_issue, other_issue: other_issue, client: client},
+				data:{job_order: job_order, requested_by: requested_by, office:  office, issue_cat: issue_cat,school: school,main_issue: main_issue, other_issue: other_issue, client: client},
 				method: "POST",
 				success: function(result){
                     alert(result);
