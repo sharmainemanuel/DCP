@@ -89,7 +89,7 @@
 		    $.ajax({
             method: "GET",
             dataType: "json",
-            url: "http://tech-assist.deped-olongapo.com/api/getJobId.php",   
+            url: "http://tech-assist.deped-olongapo.com/api/getJobId.php?",   
            // url: "api/getJobId.php",   
             success: function (result) {              
             
@@ -117,7 +117,7 @@
               url: "http://tech-assist.deped-olongapo.com/api/login.php?username="+user+"&password="+pass,
                // url: "api/login.php?username="+user+"&password="+pass,
                 success: function(result){
-                    if(result == "success"){
+                    if(result == "qwertysuccess"){
 						alert("hello "+user);
 						location.href = 'home.html';
 						console.log(result);

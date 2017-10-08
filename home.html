@@ -360,8 +360,8 @@ function formLoad(){
 }	
 function getId(){
         $.ajax({
-     //   url:"http://tech-assist.deped-olongapo.com/getJobId.php?",
-        url:"api/getJobId.php?",
+        url:"http://tech-assist.deped-olongapo.com/api/getJobId.php?",
+     //   url:"api/getJobId.php?",
         method:"GET",
         success:function(res){
 			var response = JSON.parse(res);
